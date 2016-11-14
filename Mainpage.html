@@ -152,6 +152,39 @@
 		window.open("login1.html")
 		}
 	</script>
+		<script type="text/javascript">//cookie code
+    function setCookie(username,cvalue,expirydays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (expirydays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = username + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    function getCookie(username) {
+    var name = username + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+function checkCookie() {
+    var user=getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+       user = prompt("Contact us page has been updated. User can fill the form if he experiences any issues while using the card. Please let us know to improve our service. Please enter your name:","");
+       if (user != "" && user != null) {
+           setCookie("username", user, 30);
+       }
+    }
+}
+</script>
 
 	<div id="spec">
 		<h2> Simple</h2>
