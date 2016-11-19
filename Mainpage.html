@@ -1,10 +1,46 @@
 <!doctype html>
 <html>
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<meta name="viewport" content="width=device-width", initial-scale="1.0">
     <title>E-Z CARD</title>
-<script> // jquery for styling the sidemenu 
+<script type="text/javascript">
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user=getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+       user = prompt("Contact us page has been updated. User can fill the form if he experiences any issues while using the card. Please let us know to improve our service. Please enter your name:","");
+       if (user != "" && user != null) {
+           setCookie("username", user, 30);
+       }
+    }
+}
+</script>
+<script> // jquery for styling the sidemenu
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
 	$(document).ready(function(){
 		$(".sidemenu").hover(function(){
         $(this).css("color", "yellow");
@@ -44,9 +80,7 @@
 	});
 		
 	});
-  </script>
-  
-  
+  </script>  
     <style type="text/css">
     /* CSS for the Main Page */
     body{
@@ -67,9 +101,11 @@
     }
     nav{
 	background-color: #5e0687;
-	height: 40px;
+	height: 48px;
 	margin: 10px 0 0 40px;
 	text-align:center;
+        font-size: 16px;
+
     }
 	a{
 	margin: 5px;
@@ -118,7 +154,7 @@
 #asidefooter{
 	float:right;
 	margin: 70px 40px 0 0px;
-
+        
 	}
 	#spec{
 		Width: 300px;
@@ -152,39 +188,6 @@
 		window.open("login1.html")
 		}
 	</script>
-		<script type="text/javascript">//cookie code
-    function setCookie(username,cvalue,expirydays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (expirydays*24*60*60*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = username + "=" + cvalue + ";" + expires + ";path=/";
-    }
-    function getCookie(username) {
-    var name = username + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-function checkCookie() {
-    var user=getCookie("username");
-    if (user != "") {
-        alert("Welcome again " + user);
-    } else {
-       user = prompt("Contact us page has been updated. User can fill the form if he experiences any issues while using the card. Please let us know to improve our service. Please enter your name:","");
-       if (user != "" && user != null) {
-           setCookie("username", user, 30);
-       }
-    }
-}
-</script>
 
 	<div id="spec">
 		<h2> Simple</h2>
@@ -218,12 +221,12 @@ function checkCookie() {
 	
 	</div>
 	<aside id="asidefooter">
-	<img src="https://www.nyceda.org/wp-content/uploads/2012/12/514px-MTA_New_York_City_Subway_logo.svg_.png" style="width:200px; height:50px" alt="footer1">
-	<img src="http://www.drpt.virginia.gov/images/ServiceProviders/LogoLarge/Amtrak%20345.jpg" style="width:200px; height:50px" alt="footer2">
-	<img src="http://www.mnrr.org/images/btn_mnrr_up.gif" style="width:200px; height:50px" alt="footer3"> <br>
-	<img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Holiday_inn_express.gif/300px-Holiday_inn_express.gif" style="width:200px; height:50px" alt="footer4">
-	<img src="http://cache.marriott.com/propertyimages/a/amsnt/amsnt_logo.gif" style="width:200px; height:50px" alt="footer5">
-	<img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQOdqY2tWJU1Nf8vgm1nz2YVDKe9x3wQ1Z4FypMqmbmvR6dIV5L" style="width:200px; height:50px" alt="footer6">
+	<img src="marriott.jpeg" style="width:200px; height:50px" alt="marriott">
+	<img src="Amtrak.jpg" style="width:200px; height:50px" alt="amtrak">
+	<img src="mnrr.jpeg"  style="width:200px; height:50px" alt="metro north rail road"> <br>
+	<img src="subway.jpg" style="width:200px; height:50px" alt="nycsubway">
+	<img src="Holiday_inn.jpeg" style="width:200px; height:50px" alt="holidayinn">
+	<img src="kfc.jpg" style="width:200px; height:50px" alt="kfc">
 	</aside>
 	
 </footer>
